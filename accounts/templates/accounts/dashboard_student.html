@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+<!-- {% extends 'base.html' %}
 
 {% block title %}Student Dashboard{% endblock %}
 
@@ -6,4 +6,13 @@
 <h2>Student Dashboard</h2>
 <p>Welcome, {{ user.username }}!</p>
 {% endblock %}
+ -->
+{% extends 'base.html' %}
 
+{% block title %}Student Dashboard{% endblock %}
+
+{% block content %}
+<h2>Student Dashboard</h2>
+<p>Welcome, {{ user.username }}!</p>
+<p><a href="{% url 'logout' %}">Logout</a></p>
+{% endblock %}
