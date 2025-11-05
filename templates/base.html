@@ -3,19 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Hostel Management{% endblock %}</title>
+    <title>{% block title %}Hostel Management System{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-<header>
-    <h1>Hostel Management System</h1>
-</header>
+    <header>
+        <h1>Hostel Management System</h1>
+    </header>
 
-<main>
-    {% block content %}{% endblock %}
-</main>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
 
-<footer>
-    <p>&copy; 2025 Hostel Management</p>
-</footer>
+    <footer>
+        <p>© 2025 Hostel Management</p>
+    </footer>
 </body>
 </html>
