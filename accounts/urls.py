@@ -16,6 +16,6 @@ from . import views
 urlpatterns = [
     path('login/', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
-    path('admin-dashboard/', views.admin_dashboard, name='admin_dashboard'),
-    path('student-dashboard/', views.student_dashboard, name='student_dashboard'),
+    path('dashboard/admin/', views.dashboard_admin, name='dashboard_admin'),
+    path('dashboard/student/', views.dashboard_student, name='dashboard_student'),
 ]
