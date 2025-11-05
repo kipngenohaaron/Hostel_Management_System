@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 # Login View
 def login_view(request):
@@ -9,14 +9,14 @@ def login_view(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)
-
         if user is not None:
             login(request, user)
-            messages.success(request, f'Welcome {user.username}!')
-            return redirect('/')  # Redirect to homepage or dashboard
+            if user.is_superuser:  # Admin dashboard
+                return redirect('dashboard_admin')
+            else:  # Normal user/student dashboard
+                return redirect('dashboard_student')
         else:
-            messages.error(request, 'Invalid username or password.')
-
+            messages.error(request, 'Invalid username or password')
     return render(request, 'accounts/login.html')
 
 
@@ -24,11 +24,18 @@ def login_view(request):
 @login_required
 def logout_view(request):
     logout(request)
-    messages.success(request, 'You have successfully logged out.')
-    return redirect('/accounts/login/')
+    return redirect('login')
 
 
-# Home / Dashboard View
+# Admin Dashboard
 @login_required
-def home(request):
-    return render(request, 'home.html')  # Create home.html in templates folder
+def dashboard_admin(request):
+    context = {}
+    return render(request, 'accounts/dashboard_admin.html', context)
+
+
+# Student Dashboard
+@login_required
+def dashboard_student(request):
+    context = {}
+    return render(request, 'accounts/dashboard_student.html', context)
