@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+<!-- {% extends 'base.html' %}
 {% block title %}Login{% endblock %}
 {% block content %}
 <h2>Login</h2>
@@ -13,4 +13,23 @@
 {% if error_message %}
 <p style="color:red">{{ error_message }}</p>
 {% endif %}
+{% endblock %} -->
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<div class="col-md-4 offset-md-4">
+  <h3>Login</h3>
+  <form method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label>Username</label>
+      <input type="text" name="username" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label>Password</label>
+      <input type="password" name="password" class="form-control" required>
+    </div>
+    <button class="btn btn-primary w-100" type="submit">Login</button>
+  </form>
+</div>
 {% endblock %}
