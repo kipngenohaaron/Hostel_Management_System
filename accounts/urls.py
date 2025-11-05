@@ -16,6 +16,10 @@ from . import views
 urlpatterns = [
     path('login/', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
+
+    # Admin Dashboard
     path('admin-dashboard/', views.dashboard_admin, name='dashboard_admin'),
+
+    # Student Dashboard
     path('student-dashboard/', views.dashboard_student, name='dashboard_student'),
 ]
