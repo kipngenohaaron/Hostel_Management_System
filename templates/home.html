@@ -1,17 +1,9 @@
 {% extends 'base.html' %}
+
 {% block title %}Home{% endblock %}
+
 {% block content %}
-<h1>Welcome to Hostel Management System</h1>
-<p>
-  <a href="{% url 'hostel:room_list' %}">View Rooms</a>
-</p>
-{% if user.is_authenticated %}
-  {% if user.user_type == 'admin' %}
-    <p><a href="{% url 'accounts:dashboard_admin' %}">Admin Dashboard</a></p>
-  {% elif user.user_type == 'staff' %}
-    <p><a href="{% url 'accounts:dashboard_staff' %}">Staff Dashboard</a></p>
-  {% else %}
-    <p><a href="{% url 'accounts:dashboard_student' %}">Student Dashboard</a></p>
-  {% endif %}
-{% endif %}
+<h2>Welcome to the Hostel Management System</h2>
+<p>Please login to continue.</p>
+<a href="{% url 'login' %}">Login</a>
 {% endblock %}
