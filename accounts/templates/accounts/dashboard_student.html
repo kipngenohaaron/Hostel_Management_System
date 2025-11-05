@@ -1,16 +1,9 @@
-<!-- {% extends 'base.html' %}
+{% extends 'base.html' %}
+
 {% block title %}Student Dashboard{% endblock %}
+
 {% block content %}
 <h2>Student Dashboard</h2>
-<p>Welcome, {{ user.username }} ({{ user.user_type }})</p>
-<ul>
-  <li><a href="/hostel/rooms/">View Rooms</a></li>
-  <li><a href="/hostel/my-bookings/">My Bookings</a></li>
-</ul>
-{% endblock %} -->
-{% extends 'base.html' %}
-{% block title %}Student Dashboard{% endblock %}
-{% block content %}
-<h2>Welcome, {{ user.username }}</h2>
-<p>This is your student dashboard where you can view your room and booking details.</p>
+<p>Welcome, {{ user.username }}!</p>
 {% endblock %}
+
