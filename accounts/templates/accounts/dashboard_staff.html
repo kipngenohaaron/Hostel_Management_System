@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Staff Dashboard{% endblock %}
+{% block content %}
+<h2>Staff Dashboard</h2>
+<p>Welcome, {{ user.username }} ({{ user.user_type }})</p>
+<ul>
+  <li><a href="/hostel/pending/">Pending Bookings</a></li>
+</ul>
+{% endblock %}

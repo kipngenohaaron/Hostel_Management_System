@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Pending Bookings{% endblock %}
+{% block content %}
+<h2>Pending Bookings</h2>
+<table border="1" cellpadding="6">
+  <tr><th>Student</th><th>Room</th><th>Applied</th></tr>
+  {% for b in bookings %}
+    <tr>
+      <td>{{ b.student.username }}</td>
+      <td>{{ b.room.room_number }}</td>
+      <td>{{ b.applied_at }}</td>
+    </tr>
+  {% empty %}
+    <tr><td colspan="3">No pending bookings.</td></tr>
+  {% endfor %}
+</table>
+{% endblock %}

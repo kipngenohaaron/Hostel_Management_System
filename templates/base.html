@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>{% block title %}Hostel Management System{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta charset="utf-8">
+    <title>{% block title %}Hostel Management{% endblock %}</title>
 </head>
 <body>
-    <header>
-        <h1>Hostel Management System</h1>
+    <header style="background:#f2f2f2; padding:10px;">
+        <a href="{% url 'home' %}">Home</a> |
         {% if user.is_authenticated %}
-            <p>Welcome, {{ user.username }} | <a href="{% url 'logout' %}">Logout</a></p>
+            Hello, {{ user.username }} ({{ user.user_type }}) |
+            <a href="{% url 'logout' %}">Logout</a>
         {% else %}
             <a href="{% url 'login' %}">Login</a>
         {% endif %}
-        <hr>
     </header>
-
-    <main>
+    <main style="padding:12px;">
+        {% for message in messages %}
+            <div style="border:1px solid #ccc; padding:6px; margin-bottom:6px;">{{ message }}</div>
+        {% endfor %}
         {% block content %}{% endblock %}
     </main>
-
-    <footer>
-        <hr>
-        <p>&copy; 2025 Hostel Management System</p>
+    <footer style="padding:10px; border-top:1px solid #ddd; margin-top:20px;">
+        &copy; 2025 Hostel Management System
     </footer>
 </body>
 </html>

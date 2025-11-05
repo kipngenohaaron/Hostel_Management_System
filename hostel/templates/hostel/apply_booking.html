@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Apply to Book{% endblock %}
+{% block content %}
+<h2>Apply for Room {{ room.room_number }}</h2>
+<form method="post">
+  {% csrf_token %}
+  <p>Room: {{ room.room_number }} (Vacancies: {{ room.vacancies }})</p>
+  <button type="submit">Submit Booking Request</button>
+</form>
+{% endblock %}

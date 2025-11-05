@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Rooms{% endblock %}
+{% block content %}
+<h2>Rooms</h2>
+<div>
+  {% for room in rooms %}
+    <div style="border:1px solid #ddd; padding:8px; margin-bottom:8px;">
+      <strong>Room {{ room.room_number }}</strong><br>
+      Capacity: {{ room.capacity }} | Occupied: {{ room.occupied }} | Vacancies: {{ room.vacancies }}<br>
+      {% if user.is_authenticated and user.user_type == 'student' %}
+        <a href="{% url 'hostel:apply_booking' room.id %}">Apply</a>
+      {% endif %}
+    </div>
+  {% empty %}
+    <p>No rooms available.</p>
+  {% endfor %}
+</div>
+{% endblock %}
