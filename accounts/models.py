@@ -9,4 +9,4 @@ class CustomUser(AbstractUser):
     user_type = models.CharField(max_length=10, choices=USER_TYPES, default='student')
 
     def __str__(self):
-        return self.username
+        return f"{self.username} ({self.user_type})"
